@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <% include ./partials/head %>
+  </head>
+  <body>
+
+  <% include ./partials/nav %>
+
+  <div class="jumbotron">
+    <h1>Customer List</h1>
+    <p>View all customers</p>
+    <% if(query != "") { %>
+      <span class="alert alert-warning float-right">Results: <%= rcount %> Customer Found</span>
+    <% } %>
+    <% include ./partials/notification %>
+  </div>
+
+  <div class="container">
+
+    <% customers.forEach(function(customer) { %>
+
+      <div class="card float-left ml-5 mb-5" style="width: 20rem;">
+        <img class="card-img-top" src="data:image/<%= customer.fileext %>;base64,<%= customer.image %>" alt="Card image cap">
+        <div class="card-body">
+          <h4 class="card-title"><%= customer.name %></h4>
+          <!-- <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6> -->
+          <p class="card-text"><%= customer.address %></p>
+          <a href="update/<%= customer.id %>" class="card-link btn btn-warning">Edit</a>
+          <a href="customer/<%= customer.id %>" class="card-link btn btn-info">View</a>
+        </div>
+      </div>
+
+    <% }); %>
+  </div>
+
+  <% include ./partials/footer %>
+
+  </body>
+</html>

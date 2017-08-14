@@ -1,0 +1,21 @@
++-----------+--------------+------+-----+---------+----------------+
+| Field     | Type         | Null | Key | Default | Extra          |
++-----------+--------------+------+-----+---------+----------------+
+| id        | int(11)      | NO   | PRI | NULL    | auto_increment |
+| name      | varchar(255) | YES  |     | NULL    |                |
+| address   | text         | YES  |     | NULL    |                |
+| image     | longblob     | YES  |     | NULL    |                |
+| photoname | varchar(255) | YES  |     | NULL    |                |
+| fileext   | varchar(25)  | YES  |     | NULL    |                |
++-----------+--------------+------+-----+---------+----------------+
+
++-----------+--------------+------+-----+---------+----------------+
+| Field     | Description                                          |
++-----------+--------------+------+-----+---------+----------------+
+| id        | AUTO GENERATED                                       |
+| name      | the name of the customer being stored                |
+| address   | the address of the customer being stored             |
+| image     | base64 encode of image file                          |
+| photoname | the name of the image file                           |
+| fileext   | the extension of the image file                      |
++-----------+--------------+------+-----+---------+----------------+

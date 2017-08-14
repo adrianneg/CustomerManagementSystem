@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <% include ../partials/head %>
+  </head>
+  <body>
+
+  <% include ../partials/nav %>
+
+  <div class="jumbotron">
+    <h1>Customer <%= customer.name %></h1>
+    <p>View customer</p>
+    <% include ../partials/notification %>
+  </div>
+
+  <div class="container">
+
+    <div class="container">
+        <div class="card float-left ml-5 mb-5" style="width: 20rem;">
+          <img class="card-img-top" src="data:image/<%= customer.fileext %>;base64,<%= customer.image %>" alt="Card image cap">
+          </div>
+        </div>
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <form action="/update/<%= customer.id %>" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+              <label for="customerName">Customer Name</label>
+              <input type="text" class="form-control" name="name" id="customerName" value="<%= customer.name %>" placeholder="Enter name" />
+              <small id="customerHelp" class="form-text text-muted">The name of your valued customer</small>
+            </div>
+            <div class="form-group">
+              <label for="customerAddress">Customer Address</label>
+              <textarea class="form-control" name="address" id="customerAddress"><%= customer.address %></textarea>
+              <small id="customerHelp" class="form-text text-muted">The address of your valued customer</small>
+            </div>
+            <div class="form-group">
+              <label for="customerImg">Customer Image</label>
+              <input type="file" class="form-control" name="editimage" id="customerImg" />
+              <small id="customerImgHelp" class="form-text text-muted">The image of your valued customer</small>
+            </div>
+            <button type="submit" class="btn btn-primary">Update</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <% include ../partials/footer %>
+
+  </body>
+</html>
